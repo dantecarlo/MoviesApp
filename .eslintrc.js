@@ -42,7 +42,6 @@ module.exports = {
     ],
     'prettier/prettier': ['error', {}, { usePrettierrc: true }],
     '@typescript-eslint/no-use-before-define': ['error'],
-    'import/extensions': ['error', 'never'],
     'react/prop-types': 'off',
     'no-shadow': 'off',
     '@typescript-eslint/no-shadow': ['error'],
@@ -53,6 +52,7 @@ module.exports = {
     '@typescript-eslint/comma-dangle': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
-    '@typescript-eslint/no-misused-promises': 'off'
+    '@typescript-eslint/no-misused-promises': 'off',
+    '@typescript-eslint/no-floating-promises': 'off'
   }
 }

@@ -3,3 +3,5 @@ export const routes = {
   HOME_SCREEN: 'HOME_SCREEN',
   DETAILS_SCREEN: 'DETAILS_SCREEN'
 } as const
+
+export const INITIAL_LANGUAGE = 'en'
