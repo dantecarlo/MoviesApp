@@ -1,0 +1,28 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo '🧰 Checking Styling before committing...'
+
+# Check Prettier standards
+yarn format ||
+(
+    echo '❌ Prettier Check Failed.';
+    false;
+)
+
+# Check ESLint Standards
+yarn lint ||
+(
+    echo '❌ ESLint Check Failed.'
+    false; 
+)
+
+# Check type
+yarn type:check ||
+(
+    echo '❌ Type Check Failed.'
+    false; 
+)
+
+# If everything passes... Now we can commit
+echo '✅ Commit successful!'
