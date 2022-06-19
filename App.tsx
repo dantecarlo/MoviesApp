@@ -1,15 +1,35 @@
 import 'react-native-gesture-handler'
 
 import { NavigationContainer } from '@react-navigation/native'
+import i18next from 'i18next'
 import React from 'react'
+import { I18nextProvider } from 'react-i18next'
 
+import en from './src/i18n/en.json'
+import es from './src/i18n/es.json'
 import MainStack from './src/navigation/MainStack/MainStack'
+import { INITIAL_LANGUAGE } from './src/utils/constants'
+
+i18next.init({
+  compatibilityJSON: 'v3',
+  fallbackLng: ['en', 'es'],
+  interpolation: {
+    escapeValue: false
+  },
+  lng: INITIAL_LANGUAGE,
+  resources: {
+    en: { global: en },
+    es: { global: es }
+  }
+})
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <MainStack />
-    </NavigationContainer>
+    <I18nextProvider i18n={i18next}>
+      <NavigationContainer>
+        <MainStack />
+      </NavigationContainer>
+    </I18nextProvider>
   )
 }
 
