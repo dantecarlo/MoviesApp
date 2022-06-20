@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import i18next from 'i18next'
 import React from 'react'
 import { I18nextProvider } from 'react-i18next'
+import { QueryClient, QueryClientProvider } from 'react-query'
 
 import en from './src/i18n/en.json'
 import es from './src/i18n/es.json'
@@ -18,17 +19,31 @@ i18next.init({
   },
   lng: INITIAL_LANGUAGE,
   resources: {
-    en: { global: en },
-    es: { global: es }
+    'en-US': { global: en },
+    'es-ES': { global: es }
+  }
+})
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+      refetchOnReconnect: false,
+      retry: false,
+      staleTime: 5 * 60 * 1000
+    }
   }
 })
 
 const App = () => {
   return (
     <I18nextProvider i18n={i18next}>
-      <NavigationContainer>
-        <MainStack />
-      </NavigationContainer>
+      <QueryClientProvider client={queryClient}>
+        <NavigationContainer>
+          <MainStack />
+        </NavigationContainer>
+      </QueryClientProvider>
     </I18nextProvider>
   )
 }
