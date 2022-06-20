@@ -1,5 +1,5 @@
-export interface ICurrentMoviesAPI {
-  dates: IDates
+export interface IMoviesAPI {
+  dates?: IDates
   page: number
   results: IMovie[]
   total_pages: number

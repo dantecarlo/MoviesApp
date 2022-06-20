@@ -2,7 +2,11 @@
   "Screen": {
     "HomeScreen": {
       "next": "Siguiente",
-      "language": "Idioma"
+      "language": "Idioma",
+      "inMovie": "En Cine",
+      "popular": "Populares",
+      "topRated": "Mejor Rankeadas",
+      "upcoming": "Proximamente"
     }
   }
 }
